@@ -1,0 +1,16 @@
+<input type="search" class="mat-elevation-z2" placeholder="search" [matAutocomplete]="auto" #autoCompleteInput
+    [formControl]="searchControl" (keyup.enter)="keyEnter.next($event)">
+
+<mat-autocomplete #auto="matAutocomplete" class="mat-elevation-z2" (optionSelected)="findMeaning($event.option.value)">
+    <mat-option *ngIf="isLoading" class="is-loading">
+        <mat-spinner diameter="30"></mat-spinner>
+    </mat-option>
+    <ng-container *ngIf="!isLoading">
+
+        <mat-option *ngFor="let item of filteredResults " [value]="item">
+            <span [innerHTML]="item"></span>
+        </mat-option>
+
+    </ng-container>
+
+</mat-autocomplete>

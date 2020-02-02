@@ -1,0 +1,53 @@
+
+.item {
+    width: 100%
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .container>div {
+    flex: 0 50%;
+    /*demo*/
+    border: white;
+    box-sizing:border-box
+  }
+
+  .outer-card {
+    margin: 10px;
+    min-width: 300px;
+    // max-width: 300px;
+    padding: 10px;
+    background: #212121;
+  }
+  
+  .inner-card {
+      margin: 5px 0;
+      cursor: pointer;
+  }
+
+.blue { background: #71deff; color: black; }
+.green { background: #36e9b6; color: black;  }
+.yellow { background: #ffcf44; color: black; }
+.orange { background: #e65100; color: black; }
+.purple { background: #b15cff; }
+.red { background: #e74a4a; }
+.black { background: black; }
+
+.recentSearches .mat-card{
+    padding: 8px;
+}
+
+.recentSearches .mat-card-title{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  
+.recentSearches h1 {
+    font-weight: 300;
+    font-size: 20px;
+}

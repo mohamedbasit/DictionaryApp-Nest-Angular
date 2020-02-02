@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="item recentSearches">
+        <mat-card class="outer-card">
+            <mat-card-title>
+                <app-finder (onSelectedOption)="onWordSelection($event)"></app-finder>
+            </mat-card-title>
+            <mat-card-subtitle *ngIf="recentSearches.length>0">
+                <h1>
+                    Recent searches
+                </h1>
+            </mat-card-subtitle>
+
+            <div class="words">
+                <div class="inner-card" *ngFor="let searches of recentSearches;" (click)="onRecentWordClick(searches)">
+                    <mat-card [ngClass]="searches.label">
+                        <mat-card-title>
+                            {{searches.word}}
+                        </mat-card-title>
+                        <mat-card-subtitle *ngIf="searches.results && searches.results.length>0">
+                            {{searches.results[0].definition |minLength: 80}}
+                        </mat-card-subtitle>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card>
+
+    </div>
+    <div class="item displaySearch" *ngIf="currentSearch">
+        <mat-card class="outer-card">
+            <mat-card-title>
+                {{currentSearch.word}}
+            </mat-card-title>
+            <ul *ngIf="currentSearch && currentSearch.results && currentSearch.results.length>0">
+                <li *ngFor="let word of currentSearch.results[0]| keyvalue">
+                    {{ word.key }} - {{word.value}}
+                </li>
+            </ul>
+        </mat-card>
+    </div>
+</div>
